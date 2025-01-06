@@ -5,7 +5,7 @@
 ### Product ID : SWIFI-4KFLOCAM
 ### Product Description : 4K Floodlight Security Camera with 2-Way Talk, Siren with Heat & Motion Detection.
 
-#### Testing the Swann C.C.T.V Camera API
+#### Testing the Swann C.C.T.V Camera API (Working)
 
 ##### Get the current config
 
@@ -41,4 +41,22 @@ curl http://my-swann-cctv-ip-address/API10/getMediaConfig
 Output
 ```
 { "Live Video Quality": 3, "Image Mirror": 0, "Image Flip": 0, "Video Environment": 60, "Video Environment Mode": 2, "Mic Volume": 50, "Speaker Volume": 80, "Light": 0, "Light On Motion": 1, "Light On Motion Duration": 120, "Light On Manual Duration": 120, "Siren": 0, "Siren On Motion": 0, "Siren On Motion Duration": 0, "Siren On Manual Duration": 120, "Enforcer": 0, "Enforcer On Motion": 0, "Enforcer On Motion Duration": 0, "Enforcer On Manual Duration": 30, "Light Intensity": 10 }
+```
+
+#### Testing the Swann C.C.T.V Camera RTSP Stream (working)
+
+##### Get the current config
+
+Input
+```
+vlc rtsp://my-swann-cctv-ip-address
+```
+
+Output
+```
+Input #0, rtsp, from 'rtsp://my-swann-cctv-ip-address':  0KB sq=    0B 
+  Metadata:
+    title           : stream
+  Duration: N/A, start: 0.000000, bitrate: N/A
+  Stream #0:0: Video: hevc (Main), none, 3840x2160, 15 fps, 15 tbr, 90k tbn
 ```
