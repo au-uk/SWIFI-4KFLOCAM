@@ -2,7 +2,9 @@
  Automating Swann 4K Floodlight Security Camera with 2-Way Talk, Siren with Heat &amp; Motion Detection.
 
 Product Company : Swann
+
 Product ID : SWIFI-4KFLOCAM
+
 Product Description : 4K Floodlight Security Camera with 2-Way Talk, Siren with Heat & Motion Detection.
 
 #### Testing the Swann C.C.T.V Camera API (Working)
