@@ -54,9 +54,5 @@ vlc rtsp://my-swann-cctv-ip-address
 
 Output
 ```
-Input #0, rtsp, from 'rtsp://my-swann-cctv-ip-address':  0KB sq=    0B 
-  Metadata:
-    title           : stream
-  Duration: N/A, start: 0.000000, bitrate: N/A
   Stream #0:0: Video: hevc (Main), none, 3840x2160, 15 fps, 15 tbr, 90k tbn
 ```
