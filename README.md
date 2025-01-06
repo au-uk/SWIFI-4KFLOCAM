@@ -45,16 +45,16 @@ Output
 { "Live Video Quality": 3, "Image Mirror": 0, "Image Flip": 0, "Video Environment": 60, "Video Environment Mode": 2, "Mic Volume": 50, "Speaker Volume": 80, "Light": 0, "Light On Motion": 1, "Light On Motion Duration": 120, "Light On Manual Duration": 120, "Siren": 0, "Siren On Motion": 0, "Siren On Motion Duration": 0, "Siren On Manual Duration": 120, "Enforcer": 0, "Enforcer On Motion": 0, "Enforcer On Motion Duration": 0, "Enforcer On Manual Duration": 30, "Light Intensity": 10 }
 ```
 
-#### Testing the Swann C.C.T.V Camera RTSP Stream (working)
+#### Testing the Swann C.C.T.V Camera RTSP Stream for [Frigate NVR](https://github.com/blakeblackshear/frigate) (working)
 
 ##### View the camera stream
 
 Input
 ```
-vlc rtsp://my-swann-cctv-ip-address
+cvlc rtsp://my-swann-cctv-ip-address
 ```
 
 Output
 ```
-Stream #0:0: Video: hevc (Main), none, 3840x2160, 15 fps, 15 tbr, 90k tbn
+Stream #0:0: Video: hevc (Main), 3840x2160, 15 fps, 15 tbr, 90k tbn
 ```
