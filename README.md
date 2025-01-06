@@ -51,7 +51,7 @@ Output
 
 Input
 ```
-cvlc rtsp://my-swann-cctv-ip-address
+ffplay -fs rtsp://my-swann-cctv-ip-address:554
 ```
 
 Output
