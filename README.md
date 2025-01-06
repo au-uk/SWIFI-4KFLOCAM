@@ -45,7 +45,7 @@ Output
 
 #### Testing the Swann C.C.T.V Camera RTSP Stream (working)
 
-##### Get the current config
+##### View the camera stream
 
 Input
 ```
