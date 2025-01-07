@@ -14,7 +14,7 @@
     
         - name: Send POST request to API endpoints
           uri:
-            url: "http://{{ swann_cctv_endpoints }}:85/API10/setMediaConfig"
+            url: "http://{{ inventory_hostname }}:85/API10/setMediaConfig"
             method: POST
             body: "{{ json_content.content | from_json }}"
             body_format: json
