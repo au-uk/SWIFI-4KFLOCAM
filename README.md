@@ -75,26 +75,35 @@ Note: The assumption is that all CCTV cameras will use the same settings. The pl
 Ansible Get The Settings
 
 ```
-   - name: GET Current Camera Settings via the API 
-      uri:
-        url: https://{{ swann-cctv-cameras }}
-        method: GET
-        validate_certs: no
-        headers:
-         X-Auth-Token: "{{ api_key }}"
-        status_code: 200
-      register: output
+---
+- hosts: swann-cctv-all
+  gather_facts: no
+
+  tasks:
+  - name: getMediaConfig
+    uri:
+      url: http://{{swann-cctv-all}}
+      method: GET
+      #body_format: json
+      validate_certs: no
+      headers:
+        X-Auth-Token: "{{ api_key }}"
+      #body:
+      #- [ name, your_username ]
+      #- [ password, your_password ]
+      #- [ enter, Sign in ]
+      status_code: 200
+    register: MediaConfig
+      
+  - name: print MediaConfig
+    debug:
+      msg: "{{ item }}"
+    with_items:
+    - "{{ MediaConfig }}"
 ```
 
 Ansible Set A New Setting
 
 ```
-- name: Update the CCTV Cameras Settings 
-  uri: 
-    url: http://{{ swann-cctv-cameras }}
-    method: PUT
-    return_content: yes
-    body: {"Speaker Volume":"80"}
-    body_format: json
-    status_code: 204
+WIP
 ```
