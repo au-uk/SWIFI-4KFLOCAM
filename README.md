@@ -66,7 +66,7 @@ sudo dnf install --skip-unavailable ffplay libavcodec-freeworld gstreamer1-vaapi
 
 ```
 
-#### Use Ansible, [SemaphoreUI](https://github.com/semaphoreui/semaphore) and Git to automate the settings on all CCTV cameras (in-progress)
+#### Use Ansible, [SemaphoreUI](https://github.com/semaphoreui/semaphore) and Git to automate the settings on all CCTV cameras (working)
 
 Note: The assumption is that all CCTV cameras will use the same settings. The settings file is stored in Git. The playbook runs periodically (or via webhook, if local git) and pulls the, main branch, setting file, from Git and applies the settings to an individual camera, group of cameras, or all cameras on your local network (Note: based on the Ansible Hosts File and the hosts: setting in the playbook).
 
@@ -75,6 +75,7 @@ Note: The assumption is that all CCTV cameras will use the same settings. The se
 Input
 
 ```
+---
 ---
     - name: POST Configuration to Swann CCTV
       hosts: swann_cctv_endpoints
@@ -88,15 +89,17 @@ Input
             url: "{{ json_file_url }}"
             return_content: yes
           register: json_content
+          delegate_to: 127.0.0.1
     
         - name: Send POST request to API endpoints
           uri:
-            url: "http://{{ swann_cctv_endpoints }}:85/API10/setMediaConfig"
+            url: "http://{{ inventory_hostname }}:85/API10/setMediaConfig"
             method: POST
             body: "{{ json_content.content | from_json }}"
             body_format: json
             status_code: 200
           register: api_response
+          delegate_to: 127.0.0.1
         
 ```
 To use this playbook:
@@ -116,7 +119,9 @@ ansible-playbook -i inventory_file Swann-CCTV-MediaConfig-Ansible-Playbook.yml
 ```
 
 Output
-
 ```
-WIP
+PLAY RECAP **********************************************************************************************************************************************************************************
+cctv1.example.com          : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+cctv2.example.com          : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
 ```

@@ -21,3 +21,4 @@
             body_format: json
             status_code: 200
           register: api_response
+          delegate_to: 127.0.0.1
