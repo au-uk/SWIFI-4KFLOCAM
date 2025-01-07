@@ -11,6 +11,7 @@
             url: "{{ json_file_url }}"
             return_content: yes
           register: json_content
+          delegate_to: 127.0.0.1
     
         - name: Send POST request to API endpoints
           uri:
