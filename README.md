@@ -65,3 +65,35 @@ Note: Codec Issues Install ( No decoder could be found for codec hevc )
 sudo dnf install --skip-unavailable ffplay libavcodec-freeworld gstreamer1-vaapi gstreamer1-plugins-base gstreamer1-plugins-good gstreamer1-plugins-good-extras gstreamer1-plugins-ugly-free gstreamer1-plugins-bad-free gstreamer1-libav gstreamer1-plugins-bad-freeworld gstreamer1-plugins-ugly gstreamer1-plugin-openh264 pipewire-gstreamer svt-vp9-libs x265 x265-lib
 
 ```
+
+#### Use Ansible to automate the settings on all CCTV cameras (in-progress)
+
+Note: The assumption is that all CCTV cameras will use the same settings. The playbook can be run on an individual camera, group of cameras, or all camera (based on the Ansible Hosts File).
+
+##### Playbook
+
+Ansible Get The Settings
+
+```
+- name: Get the CCTV Cameras Settings 
+  uri: 
+    url: http://{{ swann-cctv-cameras }}
+    method: GET
+    return_content: yes
+    body: {"configure":".*","write":".*","read":".*"}
+    body_format: json
+    status_code: 204
+```
+
+Ansible Set A New Setting
+
+```
+- name: Update the CCTV Cameras Settings 
+  uri: 
+    url: http://{{ swann-cctv-cameras }}
+    method: PUT
+    return_content: yes
+    body: {"configure":".*","write":".*","read":".*"}
+    body_format: json
+    status_code: 204
+```
