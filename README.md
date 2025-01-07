@@ -124,4 +124,4 @@ cctv1.example.com          : ok=2    changed=0    unreachable=0    failed=0    s
 cctv2.example.com          : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 
 ```
-## This can now be interated into home automation. 
+## Alarm, Lights and Motion detection can now be integrated into home automation.
