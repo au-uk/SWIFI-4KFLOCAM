@@ -1,9 +1,9 @@
 ---
-    - name: POST JSON data to multiple API endpoints
-      hosts: api_endpoints
+    - name: POST Configuration to Swann CCTV
+      hosts: swann_cctv_endpoints
       gather_facts: no
       vars:
-        json_file_url: "https://raw.githubusercontent.com/username/repo/main/data.json"
+        json_file_url: "https://raw.githubusercontent.com/au-uk/SWIFI-4KFLOCAM/main/MediaConfigData.json"
     
       tasks:
         - name: Fetch JSON file
@@ -14,7 +14,7 @@
     
         - name: Send POST request to API endpoints
           uri:
-            url: "http://{{ inventory_hostname }}/api/endpoint"
+            url: "http://{{ swann_cctv_endpoints }}"
             method: POST
             body: "{{ json_content.content | from_json }}"
             body_format: json
