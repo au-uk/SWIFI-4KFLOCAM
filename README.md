@@ -66,7 +66,7 @@ sudo dnf install --skip-unavailable ffplay libavcodec-freeworld gstreamer1-vaapi
 
 ```
 
-#### Use Ansible, [SemaphoreUI](https://github.com/semaphoreui/semaphore) and Git to automate the settings on all CCTV cameras (working)
+#### Use Ansible, [SemaphoreUI](https://github.com/semaphoreui/semaphore) and Git, [Gitea](https://github.com/go-gitea) to automate the settings on all CCTV cameras (working)
 
   Note: The assumption is all CCTV cameras will use the same settings. The settings file is stored and modified in Git. The playbook runs periodically (or via webhook, if local) and pulls the, main branch, setting file, from Git.
   
@@ -118,6 +118,7 @@ cctv2.example.com
 ```bash
 ansible-playbook -i inventory_file Swann-CCTV-MediaConfig-Ansible-Playbook.yml
 ```
+  Note -vvvv increases the verbosity level.
 
 Output
 ```
@@ -126,4 +127,4 @@ cctv1.example.com          : ok=2    changed=0    unreachable=0    failed=0    s
 cctv2.example.com          : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 
 ```
-#### Alarm, Lights and Motion detection can now be integrated into home automation.
+#### Alarm, Lights and Motion detection can now be integrated into home automation workflows.
