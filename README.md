@@ -1,11 +1,11 @@
 # SWIFI-4KFLOCAM
  Automating Swann 4K Floodlight Security Camera with 2-Way Talk, Siren with Heat &amp; Motion Detection.
 
-Product Company : Swann
+    Product Company : Swann
 
-Product ID : SWIFI-4KFLOCAM
+    Product ID : SWIFI-4KFLOCAM
 
-Product Description : 4K Floodlight Security Camera with 2-Way Talk, Siren with Heat & Motion Detection.
+    Product Description : 4K Floodlight Security Camera with 2-Way Talk, Siren with Heat & Motion Detection.
 
 #### Testing the Swann C.C.T.V Camera API (Working)
 
@@ -68,7 +68,7 @@ sudo dnf install --skip-unavailable ffplay libavcodec-freeworld gstreamer1-vaapi
 
 #### Use Ansible, [SemaphoreUI](https://github.com/semaphoreui/semaphore) and Github to automate the settings on all CCTV cameras (in-progress)
 
-Note: The assumption is that all CCTV cameras will use the same settings. The settings file is stored in GitHub. The playbook runs periodically (or via webhook, if local git) and pulls the, main branch, setting file, from GitHub and applies the settings to an individual camera, group of cameras, or all camera on your local network (Note: based on the Ansible Hosts File and the hosts: setting in the playbook).
+Note: The assumption is that all CCTV cameras will use the same settings. The settings file is stored in GitHub. The playbook runs periodically (or via webhook, if local git) and pulls the, main branch, setting file, from GitHub and applies the settings to an individual camera, group of cameras, or all cameras on your local network (Note: based on the Ansible Hosts File and the hosts: setting in the playbook).
 
 ##### Playbook
 
