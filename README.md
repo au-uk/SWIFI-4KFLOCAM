@@ -13,7 +13,7 @@
 
 Input
 ```
-curl http://my-swann-cctv-ip-address/API10/getMediaConfig
+curl http://my-swann-cctv-ip-address:85/API10/getMediaConfig 
 ```
 
 Output
@@ -25,7 +25,7 @@ Output
 
 Input
 ```
-curl -d '{"Speaker Volume":"80"}' -H "Content-Type: application/json" -X POST http://my-swann-cctv-ip-address/API10/setMediaConfig
+curl -d '{"Speaker Volume":"80"}' -H "Content-Type: application/json" -X POST http://my-swann-cctv-ip-address:85/API10/setMediaConfig
 ```
 
 Output
@@ -37,7 +37,7 @@ Output
 
 Input
 ```
-curl http://my-swann-cctv-ip-address/API10/getMediaConfig
+curl http://my-swann-cctv-ip-address:85/API10/getMediaConfig 
 ```
 
 Output
@@ -91,7 +91,7 @@ Input
     
         - name: Send POST request to API endpoints
           uri:
-            url: "http://{{ swann_cctv_endpoints }}"
+            url: "http://{{ swann_cctv_endpoints }}:85/API10/setMediaConfig"
             method: POST
             body: "{{ json_content.content | from_json }}"
             body_format: json
