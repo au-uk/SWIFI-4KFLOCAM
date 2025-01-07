@@ -1,25 +1,23 @@
 ---
-- hosts: swann-cctv-all
-  gather_facts: no
-
-  tasks:
-  - name: getMediaConfig
-    uri:
-      url: http://{{swann-cctv-all}}
-      method: GET
-      #body_format: json
-      validate_certs: no
-      headers:
-        X-Auth-Token: "{{ api_key }}"
-      #body:
-      #- [ name, your_username ]
-      #- [ password, your_password ]
-      #- [ enter, Sign in ]
-      status_code: 200
-    register: MediaConfig
-      
-  - name: print MediaConfig
-    debug:
-      msg: "{{ item }}"
-    with_items:
-    - "{{ MediaConfig }}"
+    - name: POST JSON data to multiple API endpoints
+      hosts: api_endpoints
+      gather_facts: no
+      vars:
+        json_file_url: "https://raw.githubusercontent.com/username/repo/main/data.json"
+    
+      tasks:
+        - name: Fetch JSON file
+          uri:
+            url: "{{ json_file_url }}"
+            return_content: yes
+          register: json_content
+    
+        - name: Send POST request to API endpoints
+          uri:
+            url: "http://{{ inventory_hostname }}/api/endpoint"
+            method: POST
+            body: "{{ json_content.content | from_json }}"
+            body_format: json
+            status_code: 200
+          register: api_response
+    

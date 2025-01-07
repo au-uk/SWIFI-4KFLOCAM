@@ -72,13 +72,35 @@ Note: The assumption is that all CCTV cameras will use the same settings. The se
 
 ##### Playbook
 
-Ansible Get The Settings
+Input
 
 ```
-WIP
+---
+    - name: POST JSON data to multiple API endpoints
+      hosts: api_endpoints
+      gather_facts: no
+      vars:
+        json_file_url: "https://raw.githubusercontent.com/username/repo/main/data.json"
+    
+      tasks:
+        - name: Fetch JSON file
+          uri:
+            url: "{{ json_file_url }}"
+            return_content: yes
+          register: json_content
+    
+        - name: Send POST request to API endpoints
+          uri:
+            url: "http://{{ inventory_hostname }}/api/endpoint"
+            method: POST
+            body: "{{ json_content.content | from_json }}"
+            body_format: json
+            status_code: 200
+          register: api_response
+    
 ```
 
-Ansible Set A New Setting
+Output
 
 ```
 WIP
