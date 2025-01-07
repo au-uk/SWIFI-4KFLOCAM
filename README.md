@@ -66,9 +66,9 @@ sudo dnf install --skip-unavailable ffplay libavcodec-freeworld gstreamer1-vaapi
 
 ```
 
-#### Use Ansible to automate the settings on all CCTV cameras (in-progress)
+#### Use Ansible, [SemaphoreUI](https://github.com/semaphoreui/semaphore) and Github to automate the settings on all CCTV cameras (in-progress)
 
-Note: The assumption is that all CCTV cameras will use the same settings. The playbook can be run on an individual camera, group of cameras, or all camera (based on the Ansible Hosts File).
+Note: The assumption is that all CCTV cameras will use the same settings. The settings file is stored in GitHub. The playbook runs periodically (or via webhook, if local git) and pulls the, main branch, setting file, from GitHub and applies the settings to an individual camera, group of cameras, or all camera on your local network (Note: based on the Ansible Hosts File and the hosts: setting in the playbook).
 
 ##### Playbook
 
@@ -76,30 +76,7 @@ Ansible Get The Settings
 
 ```
 ---
-- hosts: swann-cctv-all
-  gather_facts: no
-
-  tasks:
-  - name: getMediaConfig
-    uri:
-      url: http://{{swann-cctv-all}}
-      method: GET
-      #body_format: json
-      validate_certs: no
-      headers:
-        X-Auth-Token: "{{ api_key }}"
-      #body:
-      #- [ name, your_username ]
-      #- [ password, your_password ]
-      #- [ enter, Sign in ]
-      status_code: 200
-    register: MediaConfig
-      
-  - name: print MediaConfig
-    debug:
-      msg: "{{ item }}"
-    with_items:
-    - "{{ MediaConfig }}"
+WIP
 ```
 
 Ansible Set A New Setting
