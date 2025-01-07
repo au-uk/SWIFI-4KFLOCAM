@@ -1,19 +1,25 @@
-- name: CCTV-Update-Settings
-  hosts: swann-cctv-camera
-  tasks:
-   - name: Ping my hosts
-     ansible.builtin.ping:
+---
+- hosts: swann-cctv-all
+  gather_facts: no
 
-   - name: GET Current Camera Settings via the API 
-      uri:
-        url: https://{{ swann-cctv-cameras }}
-        method: GET
-        validate_certs: no
-        headers:
-         X-Auth-Token: "{{ api_key }}"
-        status_code: 200
-      register: output
-          
-  - name: printoutput
-      ansible.builtin.debug: 
-        var: output
+  tasks:
+  - name: getMediaConfig
+    uri:
+      url: http://{{swann-cctv-all}}
+      method: GET
+      #body_format: json
+      validate_certs: no
+      headers:
+        X-Auth-Token: "{{ api_key }}"
+      #body:
+      #- [ name, your_username ]
+      #- [ password, your_password ]
+      #- [ enter, Sign in ]
+      status_code: 200
+    register: MediaConfig
+      
+  - name: print MediaConfig
+    debug:
+      msg: "{{ item }}"
+    with_items:
+    - "{{ MediaConfig }}"
