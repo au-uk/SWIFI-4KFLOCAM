@@ -75,14 +75,15 @@ Note: The assumption is that all CCTV cameras will use the same settings. The pl
 Ansible Get The Settings
 
 ```
-- name: Get the CCTV Cameras Settings 
-  uri: 
-    url: http://{{ swann-cctv-cameras }}
-    method: GET
-    return_content: yes
-    body: {"configure":".*","write":".*","read":".*"}
-    body_format: json
-    status_code: 204
+   - name: GET Current Camera Settings via the API 
+      uri:
+        url: https://{{ swann-cctv-cameras }}
+        method: GET
+        validate_certs: no
+        headers:
+         X-Auth-Token: "{{ api_key }}"
+        status_code: 200
+      register: output
 ```
 
 Ansible Set A New Setting
@@ -93,7 +94,7 @@ Ansible Set A New Setting
     url: http://{{ swann-cctv-cameras }}
     method: PUT
     return_content: yes
-    body: {"configure":".*","write":".*","read":".*"}
+    body: {"Speaker Volume":"80"}
     body_format: json
     status_code: 204
 ```
