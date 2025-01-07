@@ -76,7 +76,6 @@ Input
 
 ```
 ---
----
     - name: POST Configuration to Swann CCTV
       hosts: swann_cctv_endpoints
       gather_facts: no
@@ -99,6 +98,21 @@ Input
             status_code: 200
           register: api_response
         
+```
+To use this playbook:
+
+1. Define your API endpoints in the Ansible inventory file:
+
+```ini
+[swann_cctv_endpoints]
+cctv1.example.com
+cctv2.example.com
+```
+
+2. Run the playbook:
+
+```bash
+ansible-playbook -i inventory_file Swann-CCTV-MediaConfig-Ansible-Playbook.yml
 ```
 
 Output
