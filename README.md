@@ -59,7 +59,7 @@ Output
 Stream #0:0: Video: hevc (Main), 3840x2160, 15 fps, 15 tbr, 90k tbn
 ```
 
-Note: Codec Issues Install ( No decoder could be found for codec hevc )
+  Note: Codec Issues Install ( No decoder could be found for codec hevc )
 
 ```
 sudo dnf install --skip-unavailable ffplay libavcodec-freeworld gstreamer1-vaapi gstreamer1-plugins-base gstreamer1-plugins-good gstreamer1-plugins-good-extras gstreamer1-plugins-ugly-free gstreamer1-plugins-bad-free gstreamer1-libav gstreamer1-plugins-bad-freeworld gstreamer1-plugins-ugly gstreamer1-plugin-openh264 pipewire-gstreamer svt-vp9-libs x265 x265-lib
@@ -116,9 +116,9 @@ cctv2.example.com
 2. Run the playbook:
 
 ```bash
-ansible-playbook -i inventory_file Swann-CCTV-MediaConfig-Ansible-Playbook.yml
+ansible-playbook -i inventory_file Swann-CCTV-MediaConfig.yml
 ```
-  Note -vvvv increases the verbosity level.
+  Note -vvvv increases the verbosity level of the play.
 
 Output
 ```
