@@ -13,7 +13,7 @@
 
 Input
 ```
-curl http://my-swann-cctv-ip-address:85/API10/getMediaConfig 
+curl http://cctv1.example.com:85/API10/getMediaConfig 
 ```
 
 Output
@@ -25,7 +25,7 @@ Output
 
 Input
 ```
-curl -d '{"Speaker Volume":"80"}' -H "Content-Type: application/json" -X POST http://my-swann-cctv-ip-address:85/API10/setMediaConfig
+curl -d '{"Speaker Volume":"80"}' -H "Content-Type: application/json" -X POST http://cctv1.example.com:85/API10/setMediaConfig
 ```
 
 Output
@@ -37,7 +37,7 @@ Output
 
 Input
 ```
-curl http://my-swann-cctv-ip-address:85/API10/getMediaConfig 
+curl http://cctv1.example.com:85/API10/getMediaConfig 
 ```
 
 Output
@@ -51,7 +51,7 @@ Output
 
 Input
 ```
-ffplay -fs rtsp://my-swann-cctv-ip-address:554
+ffplay -fs rtsp://cctv1.example.com:554
 ```
 
 Output
@@ -75,7 +75,6 @@ Note: The assumption is that all CCTV cameras will use the same settings. The se
 Input
 
 ```
----
 ---
     - name: POST Configuration to Swann CCTV
       hosts: swann_cctv_endpoints
@@ -125,3 +124,4 @@ cctv1.example.com          : ok=2    changed=0    unreachable=0    failed=0    s
 cctv2.example.com          : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 
 ```
+## This can now be interated into home automation. 
