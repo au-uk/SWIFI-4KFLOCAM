@@ -118,6 +118,7 @@ cctv2.example.com
 ```bash
 ansible-playbook -i inventory_file Swann-CCTV-MediaConfig.yml
 ```
+
   Note -vvvv increases the verbosity level of the play.
 
 Output
