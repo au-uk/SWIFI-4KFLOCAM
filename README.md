@@ -80,7 +80,7 @@ Input
       hosts: swann_cctv_endpoints
       gather_facts: no
       vars:
-        json_file_url: "https://raw.githubusercontent.com/au-uk/SWIFI-4KFLOCAM/main/MediaConfigData.json"
+        json_file_url: "https://raw.githubusercontent.com/au-uk/SWIFI-4KFLOCAM/main/getMediaConfig.json"
     
       tasks:
         - name: Fetch JSON file
