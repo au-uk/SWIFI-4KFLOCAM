@@ -78,7 +78,7 @@ Input
 
 ```
 ---
-    - name: POST Configuration to Swann CCTV
+    - name: Swann CCTV MediaConfig
       hosts: swann_cctv_endpoints
       gather_facts: no
       vars:
